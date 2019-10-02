@@ -54,10 +54,15 @@ grad_penalty.backward(retain_graph=True)
 * Make sure that there are existing folders at the locations you used
 * Open and run each necessary lines of setting_up_script.sh in same folder as preprocess_cat_dataset.py (It will automatically download the cat datasets, if this doesn't work well download it from http://academictorrents.com/details/c501571c29d16d7f41d159d699d0e7fb37092cbd)
 
-**To run**
-* To run models
-  * Use GAN.py
-* To replicate the paper
+**To run models**
+* HingeGAN Linfinity grad norm penalty with max(0, ||grad||-1):
+   * python GAN.py --loss_D 3 --image_size 32 --CIFAR10 True --grad_penalty True --l1_margin --penalty-type 'hinge'
+* WGAN Linfinity grad norm penalty with max(0, ||grad||-1):
+   * python GAN.py --loss_D 4 --image_size 32 --CIFAR10 True --grad_penalty True --l1_margin --penalty-type 'hinge'
+* WGAN L2 grad norm penalty with (||grad||-1)^2 (i.e., WGAN-GP):
+   * python GAN.py --loss_D 4 --image_size 32 --CIFAR10 True --grad_penalty True
+  
+**To replicate the paper**
   * Open experiments.sh and run the lines you want
 
 ## Citation
