@@ -52,7 +52,7 @@ grad_penalty.backward(retain_graph=True)
 
 * Change all folders locations in GAN.py (and startup_tmp.sh, fid_script.sh, experiments.sh if you want FID and replication of the paper)
 * Make sure that there are existing folders at the locations you used
-* Open and run each necessary lines of setting_up_script.sh in same folder as preprocess_cat_dataset.py (It will automatically download the cat datasets, if this doesn't work well download it from http://academictorrents.com/details/c501571c29d16d7f41d159d699d0e7fb37092cbd)
+* To get the CAT dataset: open and run each necessary lines of setting_up_script.sh in same folder as preprocess_cat_dataset.py (It will automatically download the cat datasets, if this doesn't work well download it from http://academictorrents.com/details/c501571c29d16d7f41d159d699d0e7fb37092cbd)
 
 **To run models**
 * HingeGAN Linfinity grad norm penalty with max(0, ||grad||-1):
