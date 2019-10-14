@@ -5,6 +5,8 @@ Code for paper: [Support Vector Machines, Wasserstein's distance and gradient-pe
 
 This basically the same code as https://github.com/AlexiaJM/relativistic-f-divergences, but with more options.
 
+**Important: L1 margin means Linfinity gradient penalty, L2 margin means L2 gradient penalty, and L1 m**
+
 **Sample PyTorch code to use L1, L2, Linfinity gradient penalties with hinge or LS:**
 
 ```python
