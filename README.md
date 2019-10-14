@@ -22,18 +22,18 @@ x_both.requires_grad_(False)
 grad = grad.view(current_batch_size,-1)
 grad_abs = torch.abs(grad) # Absolute value of gradient
 			
-if l1_margin: # Linfinity gradient norm penalty
+if l1_margin: # Linfinity gradient norm penalty (Best choice of margin)
   grad_norm , _ = torch.max(grad_abs,1)
-elif l1_margin_smoothmax: # Smooth Maximum of absolute gradient penalty
+elif l1_margin_smoothmax: # Smooth Maximum of absolute gradient penalty (A bit worse than l1_margin)
   grad_norm = torch.sum(grad_abs*torch.exp(grad_abs))/torch.sum(torch.exp(grad_abs))
-elif linf_margin: # L1 gradient norm penalty
+elif linf_margin: # L1 gradient norm penalty (Worst choice of margin)
   grad_norm = grad.norm(1,1) 
-else: # L2 gradient norm penalty
+else: # L2 gradient norm penalty (Second best choice of margin, this is what people generally used)
   grad_norm = grad.norm(2,1)
 
-if penalty_type == 'LS':
+if penalty_type == 'LS': # The usual choice, penalize values below 1 and above 1 (too constraining to properly estimate the Wasserstein distance)
   constraint = (grad_norm-1).pow(2)
-elif penalty_type == 'hinge':
+elif penalty_type == 'hinge': # Penalize values above 1 only (best choice)
   constraint = torch.nn.ReLU()(grad_norm - 1)
 
 constraint = constraint.mean()
