@@ -9,7 +9,7 @@ This basically the same code as https://github.com/AlexiaJM/relativistic-f-diver
 
 ```python
 
-penalty = 20
+penalty = 20 (10 is the more usual choice)
 u.resize_(batch_size, 1, 1, 1)
 u.uniform_(0, 1)
 x_both = x.data*u + x_fake.data*(1-u) # interpolation between real and fake samples
