@@ -28,7 +28,7 @@ elif l1_margin_smoothmax: # Smooth Maximum of absolute gradient penalty (A bit w
   grad_norm = torch.sum(grad_abs*torch.exp(grad_abs))/torch.sum(torch.exp(grad_abs))
 elif linf_margin: # L1 gradient norm penalty (Worst choice of margin)
   grad_norm = grad.norm(1,1) 
-else: # L2 gradient norm penalty (Second best choice of margin, this is what people generally used)
+else: # L2 gradient norm penalty (Second best choice of margin, this is what people generally use)
   grad_norm = grad.norm(2,1)
 
 if penalty_type == 'LS': # The usual choice, penalize values below 1 and above 1 (too constraining to properly estimate the Wasserstein distance)
