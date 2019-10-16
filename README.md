@@ -1,5 +1,5 @@
 # MaximumMarginGANs
-Code for paper: [Support Vector Machines, Wasserstein's distance and gradient-penalty GANs maximize a margin](xxxxxxx)
+Code for paper: [Support Vector Machines, Wasserstein's distance and gradient-penalty GANs maximize a margin](https://arxiv.org/abs/1910.06922)
 
 **Discussion at https://ajolicoeur.wordpress.com/MaximumMarginGANs.**
 
