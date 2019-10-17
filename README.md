@@ -71,10 +71,10 @@ grad_penalty.backward(retain_graph=True)
 
 If you find this code useful please cite us in your work:
 ```
-@article{jolicoeur2018relativistic,
-  title={The relativistic discriminator: a key element missing from standard GAN},
+@article{jolicoeur2019connections}
+  title={Connections between Support Vector Machines, Wasserstein distance and gradient-penalty GANs},
   author={Jolicoeur-Martineau, Alexia},
-  journal={arXiv preprint arXiv:1807.00734},
-  year={2018}
+  journal={arXiv preprint arXiv:1910.06922},
+  year={2019}
 }
 ```
