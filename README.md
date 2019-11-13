@@ -22,9 +22,9 @@ grad = torch.autograd.grad(outputs=y0, inputs=x_both, grad_outputs=grad_outputs,
 create_graph=True, only_inputs=True)[0]
 x_both.requires_grad_(False)
 grad = grad.view(current_batch_size,-1)
-grad_abs = torch.abs(grad) # Absolute value of gradient
 			
 if linf_grad_penalty: # Linfinity gradient norm penalty (Corresponds to L1 margin, BEST results)
+  grad_abs = torch.abs(grad) # Absolute value of gradient
   grad_norm , _ = torch.max(grad_abs,1)
 elif l1_grad_penalty: # L1 gradient norm penalty (Corresponds to Linfinity margin, WORST results)
   grad_norm = grad.norm(1,1) 
