@@ -9,6 +9,15 @@ This basically the same code as https://github.com/AlexiaJM/relativistic-f-diver
 
 ```python
 
+# Best setting (novel Hinge Linfinity gradient penalty)
+grad_penalty_Lp_norm = 'Linf'
+penalty_type = 'hinge'
+
+# Default setting from WGAN-GP and most cases (L2 gradient penalty)
+grad_penalty_Lp_norm = 'L2'
+penalty_type = 'LS'
+
+# Calculate gradient
 penalty = 20 # 10 is the more usual choice
 u.resize_(batch_size, 1, 1, 1)
 u.uniform_(0, 1)
@@ -21,10 +30,10 @@ create_graph=True, only_inputs=True)[0]
 x_both.requires_grad_(False)
 grad = grad.view(current_batch_size,-1)
 			
-if linf_grad_penalty: # Linfinity gradient norm penalty (Corresponds to L1 margin, BEST results)
+if grad_penalty_Lp_norm = 'Linf': # Linfinity gradient norm penalty (Corresponds to L1 margin, BEST results)
   grad_abs = torch.abs(grad) # Absolute value of gradient
   grad_norm , _ = torch.max(grad_abs,1)
-elif l1_grad_penalty: # L1 gradient norm penalty (Corresponds to Linfinity margin, WORST results)
+elif grad_penalty_Lp_norm = 'L1': # L1 gradient norm penalty (Corresponds to Linfinity margin, WORST results)
   grad_norm = grad.norm(1,1) 
 else: # L2 gradient norm penalty (Corresponds to L2 margin, this is what people generally use)
   grad_norm = grad.norm(2,1)
