@@ -5,6 +5,19 @@ Code for paper: [Support Vector Machines, Wasserstein's distance and gradient-pe
 
 This basically the same code as https://github.com/AlexiaJM/relativistic-f-divergences, but with more options.
 
+## Citation
+
+If you use our novel gradient penalties or would like to mention that gradient penalties correspond to having a maximum-margin discriminator, please cite us in your work:
+```
+@article{jolicoeur2019connections}
+  title={Connections between Support Vector Machines, Wasserstein distance and gradient-penalty GANs},
+  author={Jolicoeur-Martineau, Alexia},
+  journal={arXiv preprint arXiv:1910.06922},
+  year={2019}
+}
+```
+
+
 **Sample PyTorch code to use L1, L2, Linfinity gradient penalties with hinge or LS:**
 
 ```python
@@ -71,15 +84,3 @@ grad_penalty.backward(retain_graph=True)
   
 **To replicate the paper**
   * Open experiments.sh and run the lines you want
-
-## Citation
-
-If you find this code useful please cite us in your work:
-```
-@article{jolicoeur2019connections}
-  title={Connections between Support Vector Machines, Wasserstein distance and gradient-penalty GANs},
-  author={Jolicoeur-Martineau, Alexia},
-  journal={arXiv preprint arXiv:1910.06922},
-  year={2019}
-}
-```
